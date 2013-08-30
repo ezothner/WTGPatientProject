@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html>
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>PatientApp</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="shortcut icon" href="images/favicon.png">
+    		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    		<link rel="stylesheet" href="css/PatientApp.css">
+    		<script>window.$ = window.jQuery = WLJQ;</script>
+    		<script type="text/javascript" src="dojox/mobile/deviceTheme.js"></script>
+    		<script type="text/javascript" data-dojo-config="isDebug: false, async: true, parseOnLoad: true, mblHideAddressBar: false" src="dojo/dojo.js"></script>
+<script type="text/javascript">
+function performViewTransition (currentView, targetView) {
+	dijit.registry.byId (currentView).performTransition(targetView, 1, 'fade', null);
+}
+</script>
+</head>
+
+<!--  onload="WL.Client.init({})" -->
+<body  id="content" style="display: none;" >
+
+	<!-- application UI goes here 
+<div id="loader"> -->
+<div id="AppDiv">
+	<!-- MAIN VIEW START -->
+
+	<div data-dojo-type="dojox.mobile.View" id="Home"
+		data-dojo-props="selected:true">
+		<div data-dojo-type="dojox.mobile.Heading"
+		   
+			data-dojo-props="label:'Mary Joan Eastern'">  
+			</div>
+		<div data-dojo-type="dojox.mobile.ScrollableView" id="mainListView">
+			<div data-dojo-type="dojox.mobile.RoundRectList" class="roundRect roundRectList">
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="icon:'images/patients.png',label:'My Profile',moveTo:'myProfileView',transition:'slide',dir:'1'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="icon:'images/physicians.png',label:'My Support Network',moveTo:'mySupportView',transition:'slide',dir:'1'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="icon:'images/healthcare.png',label:'My Self Care',moveTo:'mySelfCareView',transition:'slide',dir:'1'"></div>
+					</div>
+		
+
+
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory"></h2>
+			
+				<button data-dojo-type="dojox.mobile.Button" class="mblBlueButton"
+		style="width: 80%; margin-top: 10px; text-align: center; margin-left: 30px;"
+		id="logout" onclick="WL.Client.logout('AdapterAuthRealm',{onSuccess: WL.Client.reloadApp});">LOGOUT</button>
+		</div>
+	</div>
+    	
+<!--  PROFILE VIEW -->
+	<div data-dojo-type="dojox.mobile.ScrollableView" id="myProfileView" >
+		<div data-dojo-type="dojox.mobile.Heading"
+			data-dojo-props="label:'My Profile'"></div>
+		<form>
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory">Name</h2>
+			
+				<input data-dojo-type="dojox.mobile.TextBox" value="Mary Joan Eastern" type="button">
+
+			<button data-dojo-type="dojox.mobile.Button">Edit Profile</button>
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory">Address</h2>
+			<div data-dojo-type="dojox.mobile.RoundRectList">
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Switch'">
+					<div data-dojo-type="dojox.mobile.Switch" class="mblItemSwitch"></div>
+				</div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Item'">
+					<input id="checkbox" name="checkbox"
+						data-dojo-type="dojox.mobile.CheckBox" type="checkbox"> <label
+						for="checkbox">Checkbox</label>
+				</div>
+
+				<div data-dojo-type="dojox.mobile.ListItem">
+					<input type="radio" name="radio_group"
+						data-dojo-type="dojox.mobile.RadioButton" value="value1">Radio
+					1 <input type="radio" name="radio_group"
+						data-dojo-type="dojox.mobile.RadioButton" value="value2">Radio
+					2 <input type="radio" name="radio_group"
+						data-dojo-type="dojox.mobile.RadioButton" value="value3">Radio
+					3
+				</div>
+			</div>
+			<button data-dojo-type="dojox.mobile.Button" class="mblBlueButton"
+		style="width: 80%; margin-top: 10px; text-align: center; margin-left: 30px;"
+		id="update" data-dojo-props="">UPDATE</button>
+			
+		</form>
+	</div>
+
+<!--  SUPPORT VIEW -->
+	<div data-dojo-type="dojox.mobile.ScrollableView" id="mySupportView" >
+		<div data-dojo-type="dojox.mobile.SwapView">
+			<div data-dojo-type="dojox.mobile.Heading"
+				data-dojo-props="label:'My Support Networks',back:'Back',moveTo:'Home'"></div>
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory" align="center">My Private Support Networks</h2>
+			<div data-dojo-type="dojox.mobile.RoundRectList">
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'All Items'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Family'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Friends'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Healthcare Professionals'"></div>
+			</div>
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory" align="center">My Public Support Networks</h2>
+			<div data-dojo-type="dojox.mobile.RoundRectList">
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'All Items'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Cancer News Line'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Clinical Trials'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'#Breast Cancer Care'"></div>
+					
+			</div>
+			
+		</div>
+	</div>
+	
+<!--  SELF CARE VIEW -->
+	<div data-dojo-type="dojox.mobile.ScrollableView" id="mySelfCareView" data-dojo-props="scrollDir:'v',keepScrollPos:true">
+		<div data-dojo-type="dojox.mobile.SwapView">
+			<div data-dojo-type="dojox.mobile.Heading"
+				data-dojo-props="label:'My Self Care',back:'Back',moveTo:'Home'"></div>
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory" align="left">My Videos</h2>
+			<div data-dojo-type="dojox.mobile.RoundRectList">
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Breast Cancer Update'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Breast Cancer Treatment'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Managing Morbidity'"></div>
+				
+			</div>
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory" align="left">My Readings</h2>
+			<div data-dojo-type="dojox.mobile.RoundRectList">
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'About Breast Cancer'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Breast Cancer Factsheet'"></div>
+			</div>	
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory" align="left">My Self Testing</h2>
+			<div data-dojo-type="dojox.mobile.RoundRectList">
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'My Testing'"></div>
+				<div data-dojo-type="dojox.mobile.ListItem"
+					data-dojo-props="label:'Breast Cancer Factsheet'"></div>
+					
+			</div>
+						
+			
+		</div>
+	</div>	
+	<!-- End of AppBody -->
+</div>	
+	<!--  AUTHENTICATION  -->
+	<div id="AuthDiv" style="display: none">
+	<!--  LOGIN VIEW -->
+	
+	<div data-dojo-type="dojox.mobile.ScrollableView" id="loginView"
+		data-dojo-props="scrollDir:'v'">
+		<div data-dojo-type="dojox.mobile.Heading"
+			data-dojo-props="label:'Login'"></div>
+		<div data-dojo-type="dojox.mobile.RoundRect">
+				<div><img id="portraitPic" src="images/logo_footer.png" style="margin:10px;width:200px;height:200px;"></div>
+                <div><img id="landscapePic" src="images/logo_footer.png" style="margin:10px;width:200px;height:200px;display:none;"></div>
+		
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory"></h2>			
+			<form id="LoginForm" action="">
+			   <p id="AuthInfo"></p>
+			   <hr />
+				<input type="text" id="AuthUsername" name="login_email"
+					data-dojo-type="dojox.mobile.TextBox" placeHolder="Email"
+					style="width: 100%"> <input type="password"
+					id="AuthPassword" name="login_password"
+					data-dojo-type="dojox.mobile.TextBox" style="width: 100%"
+					placeHolder="Password" style="width: 100%">
+				<button data-dojo-type="dojox.mobile.Button" class="mblBlueButton"
+					style="width: 100%;  margin-top: 10px" id="AuthSubmitButton">Submit</button>
+			</form>
+			<div data-dojo-type="dojox.mobile.GridLayout"
+				data-dojo-props="cols:2" style="margin-top: 10px">
+				<div data-dojo-type="dojox.mobile.Pane">
+					<button style="width: 100%" data-dojo-type="dojox.mobile.Button"
+						onclick="performViewTransition ('loginView', 'reset');">Forgot
+						password</button>
+				</div>
+				<div data-dojo-type="dojox.mobile.Pane">
+					<button style="width: 80% margin-left: 30px;" data-dojo-type="dojox.mobile.Button"
+						onclick="performViewTransition ('loginView', 'register');">Create
+						account</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- End Authentication Form -->
+	<!--  RESET VIEW -->
+	<div data-dojo-type="dojox.mobile.ScrollableView" id="reset">
+		<div data-dojo-type="dojox.mobile.RoundRect">
+			<form action="">
+				<input id="reset_email" name="reset_email"
+					data-dojo-type="dojox.mobile.TextBox" style="width: 100%"
+					placeHolder="Email">
+				<button type="submit" data-dojo-type="dojox.mobile.Button"
+					data-dojo-props="label:'Reset Password'"
+					style="width: 100%; margin-top: 10px"></button>
+			</form>
+		</div>
+	</div>
+	<!--  REGISTER VIEW -->
+	<div data-dojo-type="dojox.mobile.ScrollableView" id="register">
+		<div data-dojo-type="dojox.mobile.RoundRect">
+			<form id="form" action="">
+				<label for="register_email">E-mail address:</label> <input
+					data-dojo-type="dojox.mobile.TextBox" type="text"
+					id="register_email" name="register_email" style="width: 100%">
+				<label for="register_first_name">First name:</label> <input
+					data-dojo-type="dojox.mobile.TextBox" type="text"
+					id="register_first_name" name="register_first_name"
+					style="width: 100%"> <label for="register_last_name">Last
+					name:</label> <input data-dojo-type="dojox.mobile.TextBox" type="text"
+					id="register_last_name" name="register_last_name"
+					style="width: 100%"> <label for="register_password">Password:</label>
+				<input data-dojo-type="dojox.mobile.TextBox" type="password"
+					id="register_password" name="register_password" style="width: 100%">
+				<label for="register_repeat_password">Repeat password:</label> <input
+					data-dojo-type="dojox.mobile.TextBox" type="password"
+					id="register_repeat_password" name="register_repeat_password"
+					style="width: 100%">
+				<div data-dojo-type="dojox.mobile.GridLayout"
+					data-dojo-props="cols:2" style="margin-top: 10px">
+					<div data-dojo-type="dojox.mobile.Pane">
+						<button type="reset" data-dojo-type="dojox.mobile.Button"
+							style="width: 100%">Cancel</button>
+					</div>
+					<div data-dojo-type="dojox.mobile.Pane">
+						<button type="submit" data-dojo-type="dojox.mobile.Button"
+							style="width: 100%" class="mblBlueButton">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	
+	<script src="js/initOptions.js"></script>
+	<script src="js/PatientApp.js"></script>
+	<script src="js/messages.js"></script>
+    <script src="js/AdapterAuthRealmChallengeProcessor.js"></script>
+
+</body>
+</html>
